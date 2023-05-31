@@ -1,0 +1,38 @@
+.content {
+    min-height: calc(100vh - 144px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.notAuth {
+    font-family: "Segoe UI";
+}
+
+.title {
+    font-family: "Segoe UI";
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    padding: 20px;
+    border: 1px #197278 solid;
+    margin: 20px;
+}
+
+.item {
+    font-family: "Segoe UI";
+    margin: 10px;
+}
+
+.button {
+    width: 100%;
+    margin-top: 20px;
+}
+  

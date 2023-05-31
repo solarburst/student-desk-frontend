@@ -1,0 +1,54 @@
+footer {
+  background: #283D3B;
+  min-height: 80px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 75px;
+}
+
+.copyright {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #fbfbfb;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-between;
+}
+
+.item {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-left: 10px;
+}
+
+.item:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: #EDDDD4;
+}
+
+.item svg {
+  z-index: 3;
+}
+
+.item:hover path {
+  fill: #C44536;
+}

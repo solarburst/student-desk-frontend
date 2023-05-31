@@ -1,0 +1,32 @@
+.content {
+  min-height: calc(100vh - 144px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 28px;
+  font-family: "Segoe UI";
+}
+
+.formBlock {
+  display: flex;
+  border-radius: 15px;
+  padding: 16px 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginform {
+  max-width: 300px;
+  padding: 20px 20px 0 20px;
+  border: 1px #197278 solid;
+}
+
+.button {
+  width: 100%;
+}

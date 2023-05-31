@@ -1,0 +1,69 @@
+.content {
+  min-height: calc(100vh - 144px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 52px;
+  text-align: center;
+  margin: 40px;
+}
+
+.search {
+  width: 400px;
+}
+
+:global {
+  .ant-btn-primary {
+    background-color: #283d3b;
+  }
+  .ant-btn-primary:not(:disabled):hover {
+    background-color: #197278;
+  }
+  .ant-input-search .ant-input:hover {
+    border-color: #197278 !important;
+  }
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    border-color: #197278 !important;
+  }
+  .ant-input-affix-wrapper-focused {
+    border-color: #197278 !important;
+  }
+  .ant-input:focus {
+    border-color: #197278 !important;
+  }
+  .ant-input:hover {
+    border-color: #197278 !important;
+  }
+  .ant-upload-wrapper {
+    width: 100%;
+  }
+  .ant-upload {
+    width: 100%;
+  }
+  .ant-upload-select {
+    width: 100%;
+  }
+  .ant-btn {
+    width: 100%;
+  }
+  .ant-upload-list {
+    text-align: center;
+  }
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.card {
+  margin: 20px;
+}
