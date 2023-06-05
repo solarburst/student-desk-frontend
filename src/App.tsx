@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage/HomePage'
 import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/Register/RegisterPage';
 import ProfilePage from './pages/Profile/ProfilePage';
+import DetailPage from './pages/DetailPage/DetailPage';
 import { setAuth } from './redux/auth';
 import { setProfile } from './redux/profile';
 
@@ -36,9 +37,7 @@ function App() {
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/register" element={<RegisterPage />}/>
         <Route path="/profile" element={<ProfilePage />}/>
-        {/* <Route path="cards/:id" element={<AdPage/>}/>
-        <Route path="add-post" element={<AddPost/>}/>
-        <Route path="update-post/:id" element={<UpdatePost/>}/> */}
+        <Route path="/detail/:id" element={<DetailPage/>}/>
       </Routes>
     </>
   )

@@ -10,6 +10,7 @@ import { logout } from "../../api"
 import { setAuth } from '../../redux/auth';
 import { setProfile } from '../../redux/profile';
 import { defaultUser } from '../../api/dto/auth.dto';
+import { getMe } from '../../api';
 import styles from "./index.module.scss";
 import DefaultLayout from '../../layouts/DefaultLayout';
 
@@ -45,6 +46,18 @@ const ProfilePage: React.FC = () => {
     }
   };
 
+  const getUser = async () => {
+    try {
+      const res = await getMe();
+      if (res) {
+        dispatch(setAuth(true));
+        dispatch(setProfile(res));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const props: UploadProps = {
     name: 'file',
     action: 'http://localhost:3000/user/avatar',
@@ -58,6 +71,7 @@ const ProfilePage: React.FC = () => {
       }
       if (info.file.status === 'done') {
         message.success(`${info.file.name} file uploaded successfully`);
+        getUser();
       } else if (info.file.status === 'error') {
         message.error(`${info.file.name} file upload failed.`);
       }
@@ -71,7 +85,7 @@ const ProfilePage: React.FC = () => {
             (
                 <div className={styles.profile}>
                     <h2 className={styles.title}>Профиль</h2>
-                    <Image src={profile.avatarId ? `http://localhost:3000/local-files/${profile.avatarId}` : `src/assets/noavatar.png`} />
+                    <Image src={profile.avatarId ? `http://localhost:3000/local-files/${profile.avatarId}` : `/src/assets/noavatar.png`} />
                     <p className={styles.item}>Вакансия: {profile.vacancy}</p>
                     <p className={styles.item}>Имя: {profile.firstName}</p>
                     <p className={styles.item}>Фамилия: {profile.surName}</p>

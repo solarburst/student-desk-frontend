@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import { Input, Spin } from 'antd';
 import { getAll, getByVacancy } from '../../api/search';
 import { LoginResponseDTO } from '../../api/dto/auth.dto';
@@ -10,23 +11,16 @@ const { Search } = Input;
 
 const HomePage: React.FC = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [users, setUsers] = useState(Array<LoginResponseDTO>);
-  const [isLoading, setIsLoading] = useState(false);
+  const [users, setUsers] = useState<Array<LoginResponseDTO> | []>([]);
 
   const onSearch = async (searchValue: string) => {
-    try {
-      if (searchValue !== "") {
-        setIsLoading(true);
-        const users = await getByVacancy(searchValue);
-        setUsers(users);
-      }
-      else {
-        const users = await getAll();
-        setUsers(users);
-      }
-      await new Promise((res, reject) => setTimeout(res, 2000));
-    } catch (err) {
-      console.log(err);
+    if (searchValue !== "") {
+      const users = await getByVacancy(searchValue);
+      setUsers(users);
+    }
+    else {
+      const users = await getAll();
+      setUsers(users);
     }
   }
 
@@ -48,9 +42,7 @@ const HomePage: React.FC = () => {
             onChange={(e) => setSearchValue(e.target.value)}
           />
           <div className={styles.cards}>
-            {isLoading ? (
-              <Spin tip="Loading" size="large" />
-            ) : <>{users.map((user) => (<UserCard key={user.id} {...user} />))}</>}
+            <>{users.map((user) => (<Link to={`/detail/${user.id}`}><UserCard key={user.id} {...user} /></Link>))}</>
           </div>
         </div>
       </div>
